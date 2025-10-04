@@ -25,8 +25,9 @@
 - `arr[0]` - first element  
 - `arr[-1]` - last element  
 - `arr[1:4]` - elements 1,2,3
+- `arr2d[3:6, 3:6]` - Slicing in 2D
 - `arr2d[0,1]` - row 0, column 1
-- `arr2d[:,0]` - first column
+- `arr2d[:,0]` - all rows, first column
 
 ## Math & Operations
 - Works elementwise (applied to each corresponding element)
@@ -41,12 +42,14 @@
 - `arr.mean(axis=1)` - mean by row
 
 ## Filtering
-- `mask = arr > 3`
-- `arr[mask]` - only elements greater than 3
+- `mask = arr > 3` - condition for mask giving true/false values
+- `arr[mask]` - only **elements** where condiiton is true (greater than 3)
+- `np.where(arr > 3)` - only **indices** where condition is true (greater than 3)
 
 ## Reshape & Stack
-- `arr.reshape((2,3))`
+- `arr.reshape((2,3))` - change shape without changing data
 - `arr.flatten()` - make 1D
+- `np.concatenate((arr1,arr2), axis=0)` - join arrays along an axis
 - `np.vstack((a,b))` - stack vertically
 - `np.hstack((a,b))` - stack horizontally
 
