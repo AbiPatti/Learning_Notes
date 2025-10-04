@@ -53,6 +53,9 @@
 - `np.vstack((a,b))` - stack vertically
 - `np.hstack((a,b))` - stack horizontally
 
+## Modifying
+- `np.delete(arr, index, axis)` - Remove an element at given index, axis=0 to remove row or axis=1 to remove column in 2d array
+
 ## Image Analogy
 - Image = 3D array (height, width, 3)
 - Each pixel = (R,G,B) values from 0–255
