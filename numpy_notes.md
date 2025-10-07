@@ -36,10 +36,13 @@
 - `np.mean(arr)` - average
 - Broadcasting lets small arrays expand to match bigger ones
 
-## Statistics
-- `arr.sum()`, `arr.min()`, `arr.max()`
-- `arr.mean(axis=0)` - mean by column
-- `arr.mean(axis=1)` - mean by row
+## Statistics & Aggregation
+- `arr.sum()`, `arr.min()`, `arr.max()`, `arr.mean()`, etc.
+- `arr.mean(axis=0)` - column or `arr.mean(axis=1)` - by row
+- `np.median(arr)` - middle value
+- `np.std(arr)` - standard deviation (how spread out numbers are - low means data is close to mean, high means data is spread out)
+- `np.prod(arr)` - product of all elements (multiplies all elements)
+- `np.cumsum(arr)` - cumulative sum (returns an array where each element is the running sum until that point - np.cumsum([1,2,3]) -> array([1,3,6]))
 
 ## Filtering
 - `mask = arr > 3` - condition for mask giving true/false values
