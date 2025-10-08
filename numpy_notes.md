@@ -34,9 +34,11 @@
 - `arr + 5`, `arr * 2`, `arr ** 2` - applies to each element
 - `np.sqrt(arr)` - square root
 - `np.mean(arr)` - average
-- Broadcasting lets small arrays expand to match bigger ones
 - **Vectorization** - apply calculations/ functions directly to arrays without loops (`arr * 5` multiplies every element by 5, etc.)
 - `np.vectorize(function)` - make a Python function vectorized to use with NumPy arrays (such as `len()` but without parentheses)
+- **Broadcasting**:
+-   compare array **shapes** from **right to left** - each dimension must be equal or 1 to be broadcasted
+-   useful for applying operations to arrays of different shapes (dimensions must still be compatible), like when adding a vector to each row or column
 
 ## Statistics & Aggregation
 - `arr.sum()`, `arr.min()`, `arr.max()`, `arr.mean()`, etc.
