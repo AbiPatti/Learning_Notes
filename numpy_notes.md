@@ -43,7 +43,7 @@
 - `np.std(arr)` - standard deviation (how spread out numbers are - low means data is close to mean, high means data is spread out)
 - `np.prod(arr)` - product of all elements (multiplies all elements)
 - `np.cumsum(arr)` - cumulative sum (returns an array where each element is the running sum until that point - np.cumsum([1,2,3]) -> array([1,3,6]))
-- `keepdims=True` - **parameter** to keep reduced dimensions
+- `keepdims=True` - **parameter** to keep original array's dimensions
 
 ## Filtering
 - `mask = arr > 3` - condition for mask giving true/false values
