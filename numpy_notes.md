@@ -29,7 +29,7 @@
 - `arr2d[0,1]` - row 0, column 1
 - `arr2d[:,0]` - all rows, first column
 
-## Math & Operations
+## Math & Operations & Broadcasting
 - Works elementwise (applied to each corresponding element)
 - `arr + 5`, `arr * 2`, `arr ** 2` - applies to each element
 - `np.sqrt(arr)` - square root
