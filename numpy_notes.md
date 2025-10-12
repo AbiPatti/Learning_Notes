@@ -34,6 +34,7 @@
 - `arr + 5`, `arr * 2`, `arr ** 2` - applies to each element
 - `np.sqrt(arr)` - square root
 - `np.mean(arr)` - average
+- `np.round(arr, 2)` - round elements of array to 2 decimanl points
 - **Vectorization** - apply calculations/ functions directly to arrays without loops (`arr * 5` multiplies every element by 5, etc.)
 - `np.vectorize(function)` - make a Python function vectorized to use with NumPy arrays (such as `len()` but without parentheses)
 - **Broadcasting**:
