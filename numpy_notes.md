@@ -53,7 +53,7 @@
 ## Filtering
 - `mask = arr > 3` - condition for mask giving true/false values
 - `arr[mask]` - only **elements** where condiiton is true (greater than 3)
-- `np.where(arr > 3)` - only **indices** where condition is true (greater than 3)
+- `np.where(arr > 3)` - compares array with value and returns only **indices** where condition is true (greater than 3)
 
 ## Reshape & Stack
 - `arr.reshape((2,3))` - change shape without changing data
