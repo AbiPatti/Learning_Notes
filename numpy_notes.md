@@ -66,6 +66,12 @@
 ## Modifying
 - `np.delete(arr, index, axis)` - Remove an element at given index, axis=0 to remove row or axis=1 to remove column in 2d array
 
+## Loading & Saving Data
+- `np.load('file.npy')`, `np.save('file.npy', arr)` - save/load NumPy arrays
+- Use `with open(filename, mode) as f:` to safely open files
+- `np.loadtxt('file.txt')`, `np.savetxt('file.txt', arr, fmt='%d')` - text files
+- `img = plt.imread('image.png')`, `plt.imsave('out.png', img)` - read/write images (RGB arrays)
+
 ## Image Analogy
 - Image = 3D array (height, width, 3)
 - Each pixel = (R,G,B) values from 0–255
