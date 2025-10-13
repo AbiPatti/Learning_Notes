@@ -65,6 +65,8 @@
 
 ## Modifying
 - `np.delete(arr, index, axis)` - Remove an element at given index, axis=0 to remove row or axis=1 to remove column in 2d array
+- `np.flip(arr, axis)` - reverse elements along given axis - flips every axis if no axis is provided
+- `np.transpose(arr)` - flips the axis order (rows become columns & vice versa) but keeps element order the same
 
 ## Loading & Saving Data
 - `np.load('file.npy')`, `np.save('file.npy', arr)` - save/load NumPy arrays
