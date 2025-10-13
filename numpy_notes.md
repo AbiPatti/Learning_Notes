@@ -53,7 +53,7 @@
 
 **2D:** `[[x x x], [x x x]]`     → `axis=0` ↓, `axis=1` →
 
-**3D:** `[[[x x], [x x]], ...]`  → `axis=0 (layers)`, 1 (rows), 2 (cols)
+**3D:** `[[[x x], [x x]], ...]`  → `axis=0 (layers)`, `1` (rows), `2` (cols)
 
 ## Indexing & Slicing
 - Slices give views, not copies - modifying a slice affects the original array
