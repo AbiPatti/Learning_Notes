@@ -20,6 +20,41 @@
 - `arr.size` - total elements  
 - `arr.dtype` - data type
 
+## Understanding Axis and Dimennsions
+
+### 1D Arrays
+`arr = np.array([1,2,3])`
+- Shape: `(3,)`
+- Only one axis → `axis=0`
+- Operations  like `np.sum(arr, axis=0)` just sum over all elements
+
+### 2D Arrays
+`arr2d = np.array([[1, 2, 3], [4, 5, 6]])`
+- Shape: `(2, 3)` → 2 rows × 3 columns
+- `axis=0` → vertical (down columns)
+- `axis=1` → horizontal (across rows)
+- **TIP:** Axis number = dimension index (0 = first dimension, 1 = second dimension, etc.)
+
+### 3D Arrays
+`arr3d = np.random.rand(2, 3, 4)`
+- Shape: `(2, 3, 4)` → think of it as 2 layers, with each layer being a 2D array of 3×4
+- `axis=0` → across layers
+- `axis=1` → down rows
+- `axis=2` → across columns
+
+| **Axis** | **Meaning** | **Example** |
+|------|---------|---------|
+| 0 | across depth/layers | combine or average over images |
+| 1 | down rows | sum across height |
+| 2 | across columns | sum across width |
+
+### Quick Way to Visualize
+**1D:** `[x x x]`                → `axis=0`
+
+**2D:** `[[x x x], [x x x]]`     → `axis=0` ↓, `axis=1` →
+
+**3D:** `[[[x x], [x x]], ...]`  → `axis=0 (layers)`, 1 (rows), 2 (cols)
+
 ## Indexing & Slicing
 - Slices give views, not copies - modifying a slice affects the original array
 - `arr[0]` - first element  
