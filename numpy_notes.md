@@ -60,13 +60,15 @@
 - `arr.reshape((2,3))` - change shape without changing data
 - `arr.flatten()` - make 1D
 - `np.concatenate((arr1,arr2), axis=0)` - join arrays along an axis
-- `np.vstack((a,b))` - stack vertically
-- `np.hstack((a,b))` - stack horizontally
+- `np.vstack((a,b))` - stack vertically along existing dimension
+- `np.hstack((a,b))` - stack horizontally along existing dimension
+- `np.stack((a, b), axis)` - join arrays along a new axis (creates a new dimension)
 
 ## Modifying
 - `np.delete(arr, index, axis)` - Remove an element at given index, axis=0 to remove row or axis=1 to remove column in 2d array
 - `np.flip(arr, axis)` - reverse elements along given axis - flips every axis if no axis is provided
 - `np.transpose(arr)` - flips the axis order (rows become columns & vice versa) but keeps element order the same
+- `np.split(arr, n, axis)` - split array into `n` parts along an axis
 
 ## Loading & Saving Data
 - `np.load('file.npy')`, `np.save('file.npy', arr)` - save/load NumPy arrays
