@@ -23,7 +23,7 @@
   - `df.describe()` - quick stats
 - Access data:
   - `df['colName']` / `df.colName` - single column (Series)
-  - `df[['col1','col2']]` - multiple columns
+  - `df[['col1','col2']]` - multiple columns (DataFrame)
   - `df.loc[row_label, col_label]` - by labels  
   - `df.iloc[row_index, col_index]` - by numeric index
 - Index control:
