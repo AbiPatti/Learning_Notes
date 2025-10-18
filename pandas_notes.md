@@ -14,6 +14,8 @@
 - Create from dict: `pd.DataFrame({'A':[1,2], 'B':[3,4]})`
 - Create from list of lists: `pd.DataFrame([[1,2],[3,4]], columns=['A','B'])`
 - Create from NumPy array: `pd.DataFrame(np_array, columns=[...])`
+- Create from CSV/JSON/Excel: `pd.read_csv('file.csv')` (Change csv to json or excel if using that)
+  - Save to CSV/JSON/Excel: `df.to_csv('file.csv', index=False)` (Change csv to json or excel if using that)
 - View data:
   - `df.head()` - first 5 rows  
   - `df.tail()` - last 5 rows  
