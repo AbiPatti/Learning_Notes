@@ -32,7 +32,7 @@
   - Combine conditions:
     - `&` (and), `|` (or), `~` (not)
     - Example: `df[(df['Age'] > 30) & (df['City'] == 'NY')]`
-- `df.query("Age > 30 and City == 'NY'")` → same with query syntax
+  - `df.query("Age > 30 and City == 'NY'")` → same with query syntax
 - **Index control:**
   - `df.set_index('Column', inplace=True)` - make column the index
   - `df.reset_index(inplace=True)` - restore default numeric index
