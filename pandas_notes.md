@@ -43,7 +43,7 @@
   - `df.isnull()` / `df.notnull()` → filter missing or non-missing rows
 
 ### Aggregation/Grouping
-- `df.agg(func)` → apply one or more aggregation functions  
+- `df.agg(func)` → apply an aggregation function or a list of them (can use custom/user-defined functions) 
   - Example: `df.agg(['mean', 'sum'])`
 - `df['col'].agg(func)` → apply to a single column  
   - Example: `df['Age'].agg(['min', 'max'])`
