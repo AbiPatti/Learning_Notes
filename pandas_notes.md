@@ -61,7 +61,7 @@
 - `ignore_index=True` → reset index after sorting
 
 ### Cleaning
-- `df.drop_duplicates(subset="col_name", keep='first', inplace=False)` → remove duplicate rows (subset can be a column or a list of columns
+- `df.drop_duplicates(subset="col_name", keep='first', inplace=False)` → remove duplicate rows (subset can be a column or a list of columns)
   - Example: `df.drop_duplicates(subset=['Name','Age'], keep='last')`
-- `df['col'].value_counts(normalize=False, sort=True, ascending=False)` → count occurrences of unique values  
+- `df['col'].value_counts(normalize=False, sort=True, ascending=False)` → count occurrences of unique values (normalize=True will show proportion of each value in the total)
   - Example: `df['City'].value_counts(normalize=True)`
