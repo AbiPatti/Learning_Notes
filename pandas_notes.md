@@ -47,7 +47,7 @@
   - Example: `df.agg(['mean', 'sum'])`
 - `df['col'].agg(func)` → apply to a single column  
   - Example: `df['Age'].agg(['min', 'max'])`
--`df.groupby(col_name, axis=0)` → group rows by column(s), axis=0 will group rows,
+- `df.groupby(col_name, axis=0)` → group rows by column(s), axis=0 will group rows
   - Example: `df.groupby('City')['Sales'].sum()` - total sales per city
 
 ### **Index control**
