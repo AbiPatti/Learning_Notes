@@ -33,6 +33,11 @@
     - `&` (and), `|` (or), `~` (not)
     - Example: `df[(df['Age'] > 30) & (df['City'] == 'NY')]`
   - `df.query("Age > 30 and City == 'NY'")` → same with query syntax
+  - `df.isin([...])` → check if values are in a list  
+    - Example: `df[df['City'].isin(['NY','LA'])]`
+  - `df.between(a, b)` → check if values fall in range  
+    - Example: `df[df['Age'].between(20,30)]`
+  - `df.isnull()` / `df.notnull()` → filter missing or non-missing rows
 - **Index control:**
   - `df.set_index('Column', inplace=True)` - make column the index
   - `df.reset_index(inplace=True)` - restore default numeric index
