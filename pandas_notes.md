@@ -28,6 +28,12 @@
   - `df[['col1','col2']]` - multiple columns (DataFrame)
   - `df.loc[row_label, col_label]` - by labels  
   - `df.iloc[row_index, col_index]` - by numeric index
+  - **Basic slicing**:  
+    - Rows by position → `df[0:5]` (first 5 rows)  
+    - Rows by labels → `df.loc['a':'d']`  
+    - Columns → `df[['col1', 'col2']]`
+    - Accessing **Multiple Levels (Hierarchy)** → `df.loc[('USA', 'NY'):('USA', 'TX')]`
+    - Slice both rows & columns with `.loc[row_start:row_end, col_start:col_end]`
 
 ### **Filtering**
   - `df[condition]` → filter rows matching a condition
@@ -51,6 +57,8 @@
   - Example: `df.groupby('City')['Sales'].sum()` - total sales per city
 - `df.pivot_table(values=col_name, index=None, columns=None, aggfunc='mean', fill_value=None, margins=False)` → summarize data in a table by column or list of columns to aggregate (`values`), `index` is rows of the pivot table, `columns` are the columns of the pivot table, `aggfunc` is the function or list of functions to apply, `fill_value` is placeholder for the missing values, `margins` show row+col totals
   - Example: `df.pivot_table(values='Sales', index='City', columns='Month', aggfunc='sum', fill_value=0, margins=True)`
+- `df['col'].idxmax()` / `idxmin()` → returns the index of the max/min value in a column  
+  - Example: `df.loc[df['col'].idxmax()]` → row with highest value
 
 ### **Index control**
 - `df.set_index('Column', inplace=True)` - make column the index
