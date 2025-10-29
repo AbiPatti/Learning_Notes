@@ -26,3 +26,9 @@
 - `plt.xticks(ticks, labels)` / `plt.yticks(ticks, labels)` - set positions and labels for axis ticks, where ticks is a list of numbers (intervals) and labels is an optional list of strings to label the ticks (ex. plt.yticks([2,4,6], ['2 thousand', '4 thousand', '5 thousand']) 
 - `plt.xscale("log")`, `plt.yscale("log")` - change axis scale (e.g., "linear", "log", "symlog")
 - `plt.style.use("ggplot")` - change overall look
+
+### Highlighting Specific Key Points
+- Filter row for a value: `df[df['Col'] == value]`
+- Get single cell value: `df['Col'].values[0]`
+- Add a scatter point: `plt.scatter(x, y, color='red', s=100, zorder=5)`
+- Annotate with arrow: `plt.annotate("text", xy=(x,y), xytext=(x+offset, y+offset), arrowprops=dict(...))`
