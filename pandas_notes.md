@@ -40,10 +40,10 @@
   - Example: `df.drop_duplicates(subset=['Name','Age'], keep='last')`
 - `df['col'].value_counts(normalize=False, sort=True, ascending=False)` → count occurrences of unique values (normalize=True will show proportion of each value in the total)
   - Example: `df['City'].value_counts(normalize=True)`
-  - `df.dropna(subset=None, how='any', inplace=False)` → remove rows with missing values (or columns with `axis=1`)
-  - `df.isna()` → returns DataFrame of True/False where values are missing
-  - `df.any(axis=0)` → True if any value along axis is True (use like `df.isna().any` to check missing data, returns True for columns that have NA) 
-  - `df.fillna(value, inplace=False)` → replace missing values with given value (e.g. `0`, `'unknown'`, or method='ffill')  
+- `df.dropna(subset=None, how='any', inplace=False)` → remove rows with missing values (or columns with `axis=1`)
+- `df.isna()` → returns DataFrame of True/False where values are missing
+- `df.any(axis=0)` → True if any value along axis is True (use like `df.isna().any` to check missing data, returns True for columns that have NA) 
+- `df.fillna(value, inplace=False)` → replace missing values with given value (e.g. `0`, `'unknown'`, or method='ffill')  
 
 ### **Filtering**
   - `df[condition]` → filter rows matching a condition
