@@ -71,6 +71,13 @@
 - `df['col'].idxmax()` / `idxmin()` → returns the index of the max/min value in a column  
   - Example: `df.loc[df['col'].idxmax()]` → row with highest value
 
+**Joining Data**
+- `pd.merge(df1, df2, on='key', how='inner', suffixes=('_left', '_right'))` → combine DataFrames on common column
+  - `on`: columns to match (**only combine rows where value in this column is same on both sides**)
+  - `how`: type of join → `'inner'`, `'left'`, `'right'`, `'outer'`  
+  - `suffixes`: rename overlapping column names to avoid conflicts  
+  - Example: `pd.merge(df_sales, df_customers, on='CustomerID', how='inner', suffixes=('_sale', '_cust'))`
+
 ### **Index control**
 - `df.set_index('Column', inplace=True)` - make column the index
 - `df.reset_index(inplace=True)` - restore default numeric index
