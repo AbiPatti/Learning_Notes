@@ -72,6 +72,8 @@
   - Example: `df.loc[df['col'].idxmax()]` → row with highest value
 
 **Joining Data**
+
+![](https://i.sstatic.net/hMKKt.jpg)
 - `pd.merge(df1, df2, on='key', how='inner', suffixes=('_left', '_right'))` → combine DataFrames on common column
   - `on`: columns to match (**only combine rows where value in this column is same on both sides**)
   - `how`: type of join → `'inner'`, `'left'`, `'right'`, `'outer'`  
