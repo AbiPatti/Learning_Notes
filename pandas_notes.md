@@ -57,6 +57,10 @@
   - `df.between(a, b)` → check if values fall in range  
     - Example: `df[df['Age'].between(20,30)]`
   - `df.isnull()` / `df.notnull()` → filter missing or non-missing rows
+  - `df.query("condition")` → filter rows using an expression string, can use keywords 'and', 'or', etc 
+    - Example: `df.query("gdp > 2 and country == 'USA'")`
+    - Lets you write cleaner, SQL-like filters instead of boolean masks
+
 
 ### Aggregation/Grouping
 - `df.agg(func)` → apply an aggregation function or a list of them (can use custom/user-defined functions) 
@@ -80,8 +84,8 @@
   - `suffixes`: rename overlapping column names to avoid conflicts  
   - Example: `pd.merge(df_sales, df_customers, on='CustomerID', how='inner', suffixes=('_sale', '_cust'))`
 
-  - `pd.merge_ordered(df1, df2, on="col", fill_method=None, how="outer")` → like merge but keeps sort order; great for time-series  
-    - `fill_method='ffill'` → forward fills missing values (carry last known); only in merge_ordered, not normal merge
+- `pd.merge_ordered(df1, df2, on="col", fill_method=None, how="outer")` → like merge but keeps sort order; great for time-series  
+  - `fill_method='ffill'` → forward fills missing values (carry last known); only in merge_ordered, not normal merge
 
 
 - `pd.concat([df1, df2], axis=0, ignore_index=True, keys=None, join='outer')` → combine DataFrames along rows (`axis=0`) or columns (`axis=1`)
