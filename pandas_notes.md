@@ -75,7 +75,7 @@
 
 ![](https://i.sstatic.net/hMKKt.jpg)
 - `pd.merge(df1, df2, on='key', how='inner', suffixes=('_left', '_right'))` → combine DataFrames on common column
-  - `on`: columns to match (**only combine rows where value in this column is same on both sides**)
+  - `on`: columns to match (**only combine rows where value in this column is same on both sides**), can use `left_on` and `right_on` if column name is different in each table ('id' and 'movie_id')
   - `how`: type of join → `'inner'`, `'left'`, `'right'`, `'outer'`  
   - `suffixes`: rename overlapping column names to avoid conflicts  
   - Example: `pd.merge(df_sales, df_customers, on='CustomerID', how='inner', suffixes=('_sale', '_cust'))`
