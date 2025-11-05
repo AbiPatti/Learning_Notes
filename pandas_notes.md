@@ -80,6 +80,11 @@
   - `suffixes`: rename overlapping column names to avoid conflicts  
   - Example: `pd.merge(df_sales, df_customers, on='CustomerID', how='inner', suffixes=('_sale', '_cust'))`
 
+- `pd.concat([df1, df2], axis=0, ignore_index=True, keys=None, join='outer')` → combine DataFrames along rows (`axis=0`) or columns (`axis=1`)
+  - `ignore_index=True` → reset index in result  
+  - `keys` → adds hierarchical index labels to show which original table those rows came from (e.g. dataset source)  
+  - `join='outer/inner/left/right'` → what type of join (rows to keep)
+
 ### **Index control**
 - `df.set_index('Column', inplace=True)` - make column the index
 - `df.reset_index(inplace=True)` - restore default numeric index
