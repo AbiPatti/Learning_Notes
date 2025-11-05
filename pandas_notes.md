@@ -80,6 +80,10 @@
   - `suffixes`: rename overlapping column names to avoid conflicts  
   - Example: `pd.merge(df_sales, df_customers, on='CustomerID', how='inner', suffixes=('_sale', '_cust'))`
 
+  - `pd.merge_ordered(df1, df2, on="col", fill_method=None, how="outer")` → like merge but keeps sort order; great for time-series  
+    - `fill_method='ffill'` → forward fills missing values (carry last known); only in merge_ordered, not normal merge
+
+
 - `pd.concat([df1, df2], axis=0, ignore_index=True, keys=None, join='outer')` → combine DataFrames along rows (`axis=0`) or columns (`axis=1`)
   - `ignore_index=True` → reset index in result  
   - `keys` → adds hierarchical index labels to show which original table those rows came from (e.g. dataset source)  
