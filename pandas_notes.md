@@ -61,6 +61,12 @@
     - Example: `df.query("gdp > 2 and country == 'USA'")`
     - Lets you write cleaner, SQL-like filters instead of boolean masks
 
+### Reshaping Data 
+- **Long vs Wide Data** →  
+  - *Wide*: each variable in its own column (e.g., year1, year2, year3)  
+  - *Long*: one column for variable names, one for values — easier for analysis/plotting  
+- `df.melt(id_vars='col_to_keep', value_vars=['cols_to_unpivot'])` → converts wide → long  
+  - Example: `df.melt(id_vars='country', value_vars=['2020','2021'], var_name='year', value_name='gdp')`
 
 ### Aggregation/Grouping
 - `df.agg(func)` → apply an aggregation function or a list of them (can use custom/user-defined functions) 
