@@ -20,5 +20,5 @@
 - `x`, `y` → column names  
 - `hue` → group/color by a categorical variable (acts as third variable)
 - `style`, `size` → vary marker or size by category  
-- `palette` → color scheme  
+- `palette` → color scheme
 - `title` → set using `plt.title("...")`
