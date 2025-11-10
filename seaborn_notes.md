@@ -13,7 +13,10 @@
 - `sns.countplot(x, data=df)` → counts per category (no y needed)  
 - `sns.boxplot(x, y, data=df)` → distribution + outliers  
 - `sns.histplot(x, data=df, bins=20)` → histogram  
-- `sns.heatmap(df.corr(), annot=True)` → correlation matrix  
+- `sns.heatmap(df.corr(), annot=True)` → correlation matrix
+- `sns.relplot(x, y, data=df, kind='scatter'/'line', hue=None, col=None)` → high-level wrapper for `scatterplot` & `lineplot`, creates multiple plots
+  - `col` / `row` → make multiple subplots (facets)
+  - Example: `sns.relplot(x='year', y='gdp', data=df, kind='line', col='country')` will show gdp across years, one plot per country
 
 ## Common Parameters
 - `data` → DataFrame to pull from  
