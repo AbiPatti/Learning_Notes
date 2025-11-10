@@ -44,3 +44,25 @@
 **Federated:** A training approach where the model is sent to the data (e.g., to your phone), learns locally without your private data ever leaving, and then sends just the model's improvements back to a central server.
 
 **Meta:** A model that learns how to learn, or a model that learns from the output of other models.
+
+## Challenges
+
+### Bad Data
+
+- **Insufficient Data:** The model doesn't have enough examples to learn the patterns.
+- **Non-Representative Data:** The training data doesn't match the real-world data. This can be due to **Sampling Bias** (flawed collection) or **Data Drift** (the world changing over time).
+- **Poor-Quality Data:** Data is full of errors, outliers, and noise. Requires data cleaning.
+- **Irrelevant Features:** Useless columns that don't help. **Feature Engineering** is the process of selecting/creating good features.
+
+### Bad Algorithms
+
+- **Overfitting:** The model "memorizes" the training data (and its noise) instead of learning the general pattern. It fails on new, unseen data.
+    - **Fix:** Use **regularization** (penalize complexity), get more data, or clean the data.
+- **Underfitting:** The model is too simple and fails to learn the basic pattern. It performs poorly even on training data.
+    - **Fix:** Use a more powerful model or create better features.
+
+## Testing and Validating
+
+- **Test Set:** A part of your data (e.g., 20%) that you **never** train on. You use it only *once* at the very end to get a final, honest score of your model's real-world performance.
+- **Validation Set:** A part of your *training* data that you "hold out" to test your model on during development.
+    - **Use:** This lets you tune **hyperparameters** (a model's settings, like `alpha`) without "cheating" by using the test set.
