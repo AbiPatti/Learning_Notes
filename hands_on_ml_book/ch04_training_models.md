@@ -78,3 +78,54 @@ An iterative optimization algorithm.
 | **Mini-batch GD** | **Fast** | Fast | **Yes** | `SGDRegressor` (partial_fit) |
 
 *Note: "Fast" for features means it scales well mathematically, unlike the Normal Equation which calculates a matrix inverse.*
+
+---
+
+## 5. Polynomial Regression (Fitting Curved Data)
+
+What if your data isn't a straight line? You can still use a Linear model to fit non-linear data.
+
+### The Trick
+You take your original features (e.g., $x$) and add **powers** of them as new features (e.g., $x^2$, $x^3$).
+* **Code:** `PolynomialFeatures(degree=2, include_bias=False)`
+* **Result:** If you have one feature $x$, the model now sees two features: $x$ and $x^2$.
+* **The Magic:** The model is still "linear" (it's just finding weights for these new features), but the resulting plot is a **curve**.
+
+### Interaction Terms (Warning)
+* If you have multiple features (e.g., $a$ and $b$) and use `degree=2`, Scikit-Learn creates **interaction terms** too.
+* You get: $a^2$, $b^2$, and **$ab$**.
+* **Danger:** The number of features explodes quickly! ($n$ features with degree $d$ creates roughly $n^d$ new features).
+
+---
+
+## 6. Learning Curves (Diagnosing the Model)
+
+How do you know if your model is **Overfitting** or **Underfitting**? You plot the error (RMSE) as the training set gets bigger.
+
+### 1. Underfitting (High Bias)
+* **The Graph:**
+    * **Training Error:** Starts low but goes up quickly and flattens out at a **high error**.
+    * **Validation Error:** Starts high and drops slightly to meet the training curve.
+    * **The Key Sign:** Both curves plateau close together at a **high error**.
+* **Diagnosis:** The model is too simple.
+* **Fix:** Adding more data **will not help**. You need a more complex model (e.g., increase polynomial degree).
+
+### 2. Overfitting (High Variance)
+* **The Graph:**
+    * **Training Error:** Stays very low (it memorized the data).
+    * **Validation Error:** Stays high.
+    * **The Key Sign:** There is a huge **GAP** between the two curves.
+* **Diagnosis:** The model is too complex relative to the amount of data.
+* **Fix:** Adding more data **will help** (it closes the gap). Or, simplify the model (regularization).
+
+---
+
+## 7. The Bias/Variance Trade-off
+
+Every model's error comes from three sources:
+
+1.  **Bias (Wrong Assumptions):** The model is too simple (e.g., fitting a line to a curve). Leads to **Underfitting**.
+2.  **Variance (Sensitivity):** The model is too sensitive to small changes in the training data. Leads to **Overfitting**.
+3.  **Irreducible Error:** Noisiness in the data itself. You can't fix this (unless you clean the data).
+
+**The Goal:** Find the sweet spot—low enough bias to capture the pattern, but low enough variance to ignore the noise.
