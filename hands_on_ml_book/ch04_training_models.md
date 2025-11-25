@@ -129,3 +129,90 @@ Every model's error comes from three sources:
 3.  **Irreducible Error:** Noisiness in the data itself. You can't fix this (unless you clean the data).
 
 **The Goal:** Find the sweet spot—low enough bias to capture the pattern, but low enough variance to ignore the noise.
+
+---
+
+## 8. Regularized Linear Models (Constraining the Model)
+
+Standard Linear Regression often **overfits** the training data (it tries too hard to hit every noisy point). We fix this by **Regularization**: forcing the model to keep the weights (parameters) small.
+
+### Do these replace Linear Regression?
+**Yes, practically speaking.**
+You should almost *never* use plain Linear Regression. You should almost always use at least a little bit of regularization (like Ridge).
+
+### 1. Ridge Regression ($\ell_2$ Norm)
+* **The Concept:** Adds a "penalty" equal to the square of the magnitude of coefficients.
+* **The Effect:** Forces weights to be small, but **never zero**. It shrinks the model to be stable.
+* **The Dial:** `alpha` ($\alpha$).
+    * $\alpha=0$: Plain Linear Regression.
+    * $\alpha=High$: Weights end up very close to zero (Result is a flat line through the data's mean).
+* **Must Do:** You **must scale the data** (`StandardScaler`) before using Ridge, or it won't work effectively.
+
+### 2. Lasso Regression ($\ell_1$ Norm)
+* **The Concept:** Adds a "penalty" equal to the absolute value of the magnitude of coefficients.
+* **The Magic:** It tends to eliminate the weights of the least important features entirely (setting them to **zero**).
+* **The Result:** It performs automatic **Feature Selection**. It gives you a "sparse model" (only the useful features remain).
+
+### 3. Elastic Net
+* **The Concept:** A mix of both Ridge and Lasso.
+* **The Dial:** `l1_ratio` (mix ratio).
+    * `l1_ratio=0`: It's Ridge.
+    * `l1_ratio=1`: It's Lasso.
+    * `l1_ratio=0.5`: Half and half.
+
+---
+
+## 9. Which One Should You Use? (Cheatsheet)
+
+| Model | When to use it |
+| :--- | :--- |
+| **Plain Linear Regression** | Almost never. Only if you have tons of data and very few features. |
+| **Ridge Regression** | **The Default.** This should be your starting point. |
+| **Lasso Regression** | When you suspect **only a few features are useful**. It filters out the junk. |
+| **Elastic Net** | **Better than Lasso** when features are correlated (e.g., "square footage" and "number of rooms"). Lasso might erratically pick one and drop the other; Elastic Net groups them. |
+
+---
+
+## 10. Early Stopping (The "Beautiful Free Lunch")
+
+A different way to regularize iterative models (like Gradient Descent).
+
+* **The Method:**
+    1.  Train the model step-by-step (epoch by epoch).
+    2.  Measure the **Validation Error** at every step.
+    3.  **STOP** as soon as the Validation Error reaches a minimum and starts going back up.
+* **Why:** When validation error starts rising, the model has begun to **overfit**. Stopping there saves the "best" version of the model.
+
+---
+
+## 11. Logistic Regression (Classification)
+
+Despite the name "Regression," this is used for **Classification** (predicting a category).
+
+### Estimating Probabilities
+* Instead of predicting a raw number (like house price), it predicts the **probability** that an instance belongs to the positive class (e.g., "There is an 80% chance this is Spam").
+* **The Math:** It uses a **Sigmoid Function** ($\sigma$) to squash the output between 0 and 1.
+    * Output $< 0.5$: Predict Class 0 ("Not Spam")
+    * Output $\ge 0.5$: Predict Class 1 ("Spam")
+
+### Training and Cost Function
+* **Cost Function:** "Log Loss".
+    * If actual class is **1** and model predicts **0** -> **Huge Penalty**.
+    * If actual class is **0** and model predicts **1** -> **Huge Penalty**.
+* **Optimization:** There is no "Normal Equation" for this. You **must** use Gradient Descent (or similar solvers) to find the parameters.
+
+---
+
+## 12. Softmax Regression (Multinomial Logistic Regression)
+
+What if you have more than 2 classes (e.g., Classifying plants into Type A, B, or C)?
+
+* **OvR vs Softmax:** You *could* use One-vs-Rest (training 3 binary models), OR you can use **Softmax**.
+* **How it works:**
+    1.  The model calculates a "score" for every class (A, B, C).
+    2.  It applies the **Softmax Function** to turn those scores into probabilities.
+    3.  The probabilities sum to 1 (e.g., A: 10%, B: 70%, C: 20%).
+    4.  It picks the class with the highest probability.
+* **Cross Entropy:** The cost function used to train Softmax. It penalizes the model when it estimates a low probability for the target class.
+
+**Key Note:** Softmax predicts **one** class at a time (mutually exclusive). It cannot handle multi-label output (e.g., "This image contains a Dog AND a Cat").
