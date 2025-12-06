@@ -1,4 +1,4 @@
-# Chapter 4: Training Models
+# Training Models
 
 ## 1. Linear Regression: The Math
 The goal is to find the best weights (parameters) to fit the data.
