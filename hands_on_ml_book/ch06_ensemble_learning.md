@@ -1,4 +1,4 @@
-# Chapter 6: Ensemble Learning and Random Forests
+# Ensemble Learning and Random Forests
 
 ## 1. The Core Concept: Wisdom of the Crowd
 Instead of training one "Genius" model, we train a thousand "Mediocre" models and average their answers.
